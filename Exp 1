@@ -1,0 +1,19 @@
+def caesar_cipher(text, shift):
+result = ""
+for char in text:
+if char.isupper():
+result += chr((ord(char) - 65 + shift) % 26 + 65)
+elif char.islower():
+result += chr((ord(char) - 97 + shift) % 26 + 97)
+else:
+result += char
+return result
+
+text = input("Enter text: ")
+shift = int(input("Enter shift value (1–25): "))
+
+encrypted_text = caesar_cipher(text, shift)
+decrypted_text = caesar_cipher(encrypted_text, -shift)
+
+print("\nEncrypted Text:", encrypted_text)
+print("Decrypted Text:", decrypted_text)
